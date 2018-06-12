@@ -1,0 +1,16 @@
+{
+  "name": "get-youtube-url",
+  "version": "1.0.0",
+  "description": "Gets the url of a youtube video without having to access www.youtube.com. Use in places where youtube is blocked (e.g. China)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "author": "JonyTF",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  }
+}
