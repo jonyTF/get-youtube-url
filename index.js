@@ -12,10 +12,14 @@ app.use(express.urlencoded({
     extended: true
 }));
 
+app.get('/', function(req, res) {
+    res.sendFile(__dirname + '/www/index.html');
+})
+
 app.post('/search', function(req, res) {
     var query = req.body.query;
     console.log('query: ', req.body);
-    res.send('Query is ' + query);
+    res.send({result: 'Query is ' + query});
 });
 
 http.listen(process.env.PORT || 1266, function() {
