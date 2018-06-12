@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const bodyParser = require('body-parser');
+const funcs = require('./funcs');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -17,8 +18,17 @@ app.get('/', function(req, res) {
 })
 
 app.post('/search', function(req, res) {
-    var query = req.body.query;
-    console.log('query: ', req.body);
+    let query = req.body.query;
+    console.log('query: ', query);
+
+    funcs.getVidNames(query)
+        .then((res) => {
+            console.log('got results');
+        })
+        .catch((err) => console.error(err));
+
+
+
     res.send({result: 'Query is ' + query});
 });
 
