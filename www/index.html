@@ -7,9 +7,9 @@
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script>
             function postData(url, data) {
-                return fetch('http://localhost:1266/search', {
+                return fetch(url, {
                     method: 'POST',
-                    body: JSON.stringify({query: 'watwat'}),
+                    body: JSON.stringify(data),
                     headers: {
                         'Accept': 'application/json, text/plain, */*',
                         'Content-Type': 'application/json',
@@ -21,19 +21,9 @@
             }
 
             $(document).ready(function() {
-                /*postData('http://localhost:1266/search', {query: 'lelxdh3h3'})
+                postData('http://localhost:1266/search', {query: 'lelxdh3h3'})
                     .then(data => console.log(data))
-                    .catch(error => console.error(error));*/
-                fetch('http://localhost:1266/search', {
-                    method: 'POST',
-                    body: JSON.stringify({query: 'watwat'}),
-                    headers: {
-                        'Accept': 'application/json, text/plain, */*',
-                        'Content-Type': 'application/json',
-                    },
-                })
-                    .then(res => res.json())
-                    .then(res => console.log(res));
+                    .catch(error => console.error(error));
             });
         </script>
     </body>
