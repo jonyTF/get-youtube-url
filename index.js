@@ -19,18 +19,14 @@ app.get('/', function(req, res) {
 
 app.post('/search', function(req, res) {
     let query = req.body.query;
-    var vidNames;
     console.log('query: ', query);
 
     funcs.getVidNames(query)
-        .then((res) => {
-            vidNames = res;
+        .then((result) => {
             console.log('got results');
-            console.log(vidNames);
+            res.send(result);
         })
         .catch((err) => console.error(err));
-
-    res.send(vidNames);
 });
 
 http.listen(process.env.PORT || 1266, function() {
