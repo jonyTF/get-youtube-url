@@ -19,8 +19,9 @@ exports.getVidNames = function(query) {
                     console.log('vidName' + i + ': ' + name + ', URL: ' + url);
                     return {name: name, url: url};
                 });
+                console.log(JSON.stringify(vidNames));
                 //let vidNames = $.html();
-                resolve(vidNames);
+                resolve(JSON.stringify(vidNames));
             } else {
                 console.log(error);
                 reject(error);
