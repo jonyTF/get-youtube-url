@@ -13,10 +13,11 @@ exports.getVidNames = function(query) {
             if (!error) {
                 console.log('lel');
                 let $ = cheerio.load(body);
-                let vidNames = $('a').map(function(i, elem) {
+                /*let vidNames = $('a').map(function(i, elem) {
                     console.log('vidName' + i + ': ', $(this).text());
                     return $(this).text();
-                });
+                });*/
+                let vidNames = $.html();
                 resolve(vidNames);
             } else {
                 console.log(error);

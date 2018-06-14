@@ -24,6 +24,7 @@ app.post('/search', function(req, res) {
     funcs.getVidNames(query)
         .then((res) => {
             console.log('got results');
+            console.log(res);
         })
         .catch((err) => console.error(err));
 
