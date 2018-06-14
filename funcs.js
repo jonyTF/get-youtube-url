@@ -17,15 +17,24 @@ exports.getVidNames = function(query) {
                     let name = $(this).text();
                     let url = 'https://www.youtube.com' + $(this).children('a').attr('href');
                     console.log('vidName' + i + ': ' + name + ', URL: ' + url);
-                    return [name, url];
+                    return {name: name, url: url};
                 });
-                console.log(JSON.stringify(vidNames));
                 //let vidNames = $.html();
-                resolve(JSON.stringify(vidNames));
+                resolve(vidNames);
             } else {
                 console.log(error);
                 reject(error);
             }
         })
     });
+};
+
+exports.strMapToObj = function(strMap) {
+    let obj = Object.create(null);
+    for (let [k,v] of strMap) {
+        // We don’t escape the key '__proto__'
+        // which can cause problems on older engines
+        obj[k] = v;
+    }
+    return obj;
 };
