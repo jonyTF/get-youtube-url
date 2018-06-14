@@ -58,9 +58,9 @@
 
             $(document).ready(function() {
                 $('#searchBtn').click(function() {
-                    console.log('lel');
                     if ($('#q').val() !== '') {
-                        postData('../search', {query: $('#q').text()})
+                        console.log('Searching for ' + $('#q').val());
+                        postData('../search', {query: $('#q').val()})
                             .then(data => {
                                 console.log(data);
                                 $('#results').html('');
