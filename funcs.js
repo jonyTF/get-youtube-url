@@ -14,7 +14,7 @@ exports.getVidNames = function(query) {
                 console.log('lel');
                 let $ = cheerio.load(body);
                 let vidNames = $('.yt-lockup-title').map(function(i, elem) {
-                    console.log(elem.children('a').attr('href'));
+                    console.log($(this).children('a').attr('href'));
                     console.log('vidName' + i + ': ', $(this).text());
                     return $(this).text();
                 });
