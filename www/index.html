@@ -51,9 +51,7 @@
                         'Content-Type': 'application/json',
                     }
                 })  
-                .then(function(response) {
-                    return response;
-                });
+                .then(response => response.json());
             }
 
             $(document).ready(function() {
