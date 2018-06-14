@@ -4,6 +4,7 @@ const UrlSafeString = require('url-safe-string'); // Might want to use something
 const tagGenerator = new UrlSafeString();
 
 exports.getVidNames = function(query) {
+    console.log('In {getVidNames}, query is : ', query);
     let search_query = tagGenerator.generate(query);
     let url = 'https://www.youtube.com/results?search_query=' + search_query + '&page=&utm_source=opensearch';
 
