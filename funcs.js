@@ -14,9 +14,10 @@ exports.getVidNames = function(query) {
                 console.log('lel');
                 let $ = cheerio.load(body);
                 let vidNames = $('.yt-lockup-title').map(function(i, elem) {
-                    console.log($(this).children('a').attr('href'));
-                    console.log('vidName' + i + ': ', $(this).text());
-                    return $(this).text();
+                    let name = $(this).text();
+                    let url = 'https://www.youtube.com' + $(this).children('a').attr('href');
+                    console.log('vidName' + i + ': ' + name + ', URL: ' + url);
+                    return {name: name, url: url};
                 });
                 //let vidNames = $.html();
                 resolve(vidNames);

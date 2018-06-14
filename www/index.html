@@ -1,9 +1,45 @@
 <!DOCTYPE html>
     <head>
         <title>Get Youtube Link</title>
+        <style>
+            body {
+                font-size: 20px;
+            }
+
+            .searchArea {
+
+            }
+            
+            #q {
+                border-top-left-radius: 25px;
+                border-bottom-left-radius: 25px;
+                float: left;
+                height: 26px;
+                padding-left: 0.5em;
+                padding-right: 0.5em;
+            }
+
+            #searchBtn {
+                border-top-right-radius: 25px;
+                border-bottom-right-radius: 25px;
+                height: 32px;
+            }    
+
+            #result {
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+        </style>
     </head>
 
     <body>
+        <div class="searchArea">
+            <input id="q" type="text" placholder="Search Youtube" />
+            <button id="searchBtn">Search</button>
+        </div>
+
+        <div id="results"></div>
+
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script>
             function postData(url, data) {
@@ -21,9 +57,27 @@
             }
 
             $(document).ready(function() {
-                postData('../search', {query: 'lel xdh   3h 3'})
+                $('#searchBtn').click(function() {
+                    console.log('lel');
+                    if ($('#q').val() !== '') {
+                        postData('../search', {query: $('#q').text()})
+                            .then(data => {
+                                console.log(data);
+                                $('#results').html('');
+                                data.forEach(element => {
+                                    let name = element.name;
+                                    let url = element.url;
+                                    let result = '<div id="result"><h2>' + name + '</h2>' + '<p>' + url + '</p></div>';
+                                    $('#results').append(result);
+                                });
+                            })
+                            .catch(error => console.error(error));
+                    }
+                });
+                /*postData('../search', {query: 'lel xdh   3h 3'})
                     .then(data => console.log(data))
                     .catch(error => console.error(error));
+                */
             });
         </script>
     </body>
