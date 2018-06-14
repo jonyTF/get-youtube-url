@@ -17,7 +17,7 @@ exports.getVidNames = function(query) {
                     let name = $(this).text();
                     let url = 'https://www.youtube.com' + $(this).children('a').attr('href');
                     console.log('vidName' + i + ': ' + name + ', URL: ' + url);
-                    return {name: name, url: url};
+                    return ({name: name, url: url});
                 });
                 console.log(JSON.stringify(vidNames));
                 //let vidNames = $.html();
