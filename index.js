@@ -26,6 +26,7 @@ app.post('/search', function(req, res) {
         .then((res) => {
             vidNames = res;
             console.log('got results');
+            console.log(vidNames);
         })
         .catch((err) => console.error(err));
 
