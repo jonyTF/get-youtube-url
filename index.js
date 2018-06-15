@@ -25,7 +25,7 @@ app.post('/search', function(req, res) {
         .then((result) => {
             console.log('got results');
             console.log(result);
-            result.foreach(element => {
+            result.each((i, element) => {
                 console.log('res.json('+element+')');
                 res.json(element);
             });
