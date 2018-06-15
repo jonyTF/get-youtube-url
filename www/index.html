@@ -62,7 +62,8 @@
                             .then(data => {
                                 console.log(data);
                                 $('#results').html('');
-                                data.each((i, element) => {
+                                data.forEach((element) => {
+                                    console.log(element);
                                     let name = element.name;
                                     let url = element.url;
                                     let result = '<div id="result"><h2>' + name + '</h2>' + '<p>' + url + '</p></div>';
