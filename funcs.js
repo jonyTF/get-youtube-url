@@ -16,7 +16,7 @@ exports.getVidNames = function(query) {
                 let vidNames = $('.yt-lockup-title').map(function(i, elem) {
                     let name = $(this).text();
                     let url = 'https://www.youtube.com' + $(this).children('a').attr('href');
-                    let channel = $('.yt-lockup-byline').text();
+                    let channel = $(this).children('.yt-lockup-byline').text();
                     console.log('vidName' + i + ': ' + name + ', URL: ' + url + ', channel: ' + channel);
                     return {name: name, url: url, channel: channel};
                 });
