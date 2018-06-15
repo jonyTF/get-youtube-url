@@ -29,7 +29,8 @@ app.post('/search', function(req, res) {
             result.each((i, element) => {
                 console.log('res.write('+JSON.stringify(element)+')');
                 res.write(JSON.stringify(element));
-                res.write(',');
+                if (i != result.length-1)
+                    res.write(',');
             });
             res.write(']');
             res.end();
