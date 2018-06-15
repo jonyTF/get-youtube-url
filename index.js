@@ -25,7 +25,12 @@ app.post('/search', function(req, res) {
         .then((result) => {
             console.log('got results');
             console.log(result);
-            res.send(JSON.stringify(funcs.strMapToObj(result)));
+            result.forEach(element => {
+                console.log('res.json('+element+')');
+                res.json(element);
+            });
+            res.end();
+            //res.send(JSON.stringify(funcs.strMapToObj(result)));
         })
         .catch((err) => console.error(err));
 });
