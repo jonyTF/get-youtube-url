@@ -35,7 +35,7 @@
 
     <body>
         <div class="searchArea">
-            <input id="q" type="text" placholder="Search Youtube" />
+            <input id="q" type="text" value="" placholder="Search Youtube" />
             <button id="searchBtn">Search</button>
         </div>
 
@@ -68,7 +68,7 @@
                                     let name = element.name;
                                     let url = element.url;
                                     let channel = element.channel
-                                    let result = '<div id="result"><h2>' + name + '</h2><h3>' + channel + '</h3><p>' + url + '</p></div>';
+                                    let result = '<div id="result"><h2>' + name + '</h2><h3>' + channel + '</h3><input type="text" value="' + url + '"/></div>';
                                     $('#results').append(result);
                                 });
                             })
