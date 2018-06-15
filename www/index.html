@@ -35,7 +35,7 @@
 
     <body>
         <div class="searchArea">
-            <input id="q" type="text" value="" placholder="Search Youtube" />
+            <input id="q" type="text" placeholder="Search Youtube" />
             <button id="searchBtn">Search</button>
         </div>
 
@@ -67,8 +67,10 @@
                                     console.log(element);
                                     let name = element.name;
                                     let url = element.url;
-                                    let channel = element.channel
-                                    let result = '<div id="result"><h2>' + name + '</h2><h3>' + channel + '</h3><input type="text" value="' + url + '"/></div>';
+                                    let channel = element.channel;
+                                    let dlmp3 = '<iframe style="width:100%;min-width:200px;max-width:350px;height:57px;border:0;overflow:hidden;" scrolling="no" src="//ytbapi.com/dl.php?link='+url+'&format=mp3&text=fff&color=009688"></iframe>';
+                                    let dlmp4 = '<iframe style="width:100%;min-width:200px;max-width:350px;height:57px;border:0;overflow:hidden;" scrolling="no" src="//ytbapi.com/dl.php?link='+url+'&format=mp4&text=fff&color=ff5722"></iframe>';
+                                    let result = '<div id="result"><h2>' + name + '</h2><h3>' + channel + '</h3><p>' + url + '</p>'+dlmp3+dlmp4+'</div>';
                                     $('#results').append(result);
                                 });
                             })
