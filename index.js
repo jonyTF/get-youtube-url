@@ -25,10 +25,13 @@ app.post('/search', function(req, res) {
         .then((result) => {
             console.log('got results');
             console.log(result);
+            res.write('[');
             result.each((i, element) => {
                 console.log('res.write('+JSON.stringify(element)+')');
                 res.write(JSON.stringify(element));
+                res.write(',');
             });
+            res.write(']');
             res.end();
             //res.send(JSON.stringify(funcs.strMapToObj(result)));
         })
